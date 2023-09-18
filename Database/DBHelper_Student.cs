@@ -25,7 +25,7 @@ public class DbHelperStudent
         _connection.Close();
         return dt;
     }
-    
+
     public Student GetStudentById(int? countryId)
     {
         _connection.Open();
@@ -54,11 +54,12 @@ public class DbHelperStudent
                 student.Modified = Convert.ToDateTime(sdr["Modified"]);
             }
         }
+
         _connection.Close();
         return student;
     }
-    
-    public bool AddCountry(Student student)
+
+    public bool AddStudent(Student student)
     {
         _connection.Open();
         SqlCommand cmd = _connection.CreateCommand();
@@ -89,5 +90,57 @@ public class DbHelperStudent
             return false;
         }
     }
-    
+
+    public bool UpdateCountry(Student student)
+    {
+        _connection.Open();
+        SqlCommand cmd = _connection.CreateCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "PR_MST_Student_UpdateByPK";
+        // Add parameters for the stored procedure.
+        cmd.Parameters.AddWithValue("StudentID", student.StudentId);
+        cmd.Parameters.AddWithValue("BranchID", student.BranchId);
+        cmd.Parameters.AddWithValue("CityID", student.CityId);
+        cmd.Parameters.AddWithValue("StateID", student.StateId);
+        cmd.Parameters.AddWithValue("CountryID", student.CountryId);
+        cmd.Parameters.AddWithValue("StudentName", student.StudentName);
+        cmd.Parameters.AddWithValue("MobileNoStudent", student.MobileNoStudent);
+        cmd.Parameters.AddWithValue("Email", student.Email);
+        cmd.Parameters.AddWithValue("MobileNoFather", student.MobileNoFather);
+        cmd.Parameters.AddWithValue("Address", student.Address);
+        cmd.Parameters.AddWithValue("BirthDate", student.BirthDate);
+        cmd.Parameters.AddWithValue("Created", student.Created);
+        bool isUpdated = Convert.ToBoolean(cmd.ExecuteNonQuery());
+        _connection.Close();
+        if (isUpdated)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool DeleteStudent(int studentID)
+    {
+        _connection.Open();
+        SqlCommand cmd = _connection.CreateCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "PR_MST_Student_DeleteByPK";
+
+        // Add the parameter for the stored procedure.
+        cmd.Parameters.AddWithValue("@StudentID", studentID);
+
+        bool isDeleted = Convert.ToBoolean(cmd.ExecuteNonQuery());
+        _connection.Close();
+        if (isDeleted)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
