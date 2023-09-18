@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+@model crud_demo.Models.Country;
+
+<h1 class="text-capitalize text-white">Country Add / Edit</h1>
+
+<form class="row g-3 row-cols-1" type="post" asp-controller="Country" asp-action="AddCountry">
+    @Html.HiddenFor(x => x.CountryId)
+    @Html.HiddenFor(x => x.Created)
+    <div class="col-12">
+        <label for="countryname" class="form-label text-white">Country Name</label>
+        <input type="text" class="form-control" id="" asp-for="CountryName">
+        <span asp-validation-for="CountryName" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <label for="countrycode" class="form-label text-white">Country Code</label>
+        <input type="text" class="form-control" asp-for="CountryCode">
+        <span asp-validation-for="CountryCode" class="text-danger"></span>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+</form>

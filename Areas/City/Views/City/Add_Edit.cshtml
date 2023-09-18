@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model crud_demo.Areas.CIty.Models.City
+<h2 class="text-white">City Add Edit</h2>
+
+<form class="form-horizontal" role="form" method="post" asp-area="City" asp-controller="City" asp-action="Save">
+    @Html.HiddenFor(x => x.CityID)
+    @Html.HiddenFor(x => x.Created)
+    <div class="form-body">
+        <div class="form-group">
+            <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>City Name</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" asp-for="CityName" placeholder="Enter State Name"/>
+                <span asp-validation-for="CityName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>City Code</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" asp-for="CityCode" placeholder="Enter State Name"/>
+                <span asp-validation-for="CityCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>State Name</label>
+            <div class="col-md-9">
+                <select class="form-control" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList, "StateID", "StateName"))">
+                    <option value="">Select State</option>
+                </select>
+                <span asp-validation-for="StateID" class="text-danger"></span>
+            </div>
+        </div><div class="form-group">
+            <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>Country Name</label>
+            <div class="col-md-9">
+                <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList, "CountryId", "CountryName"))">
+                    <option value="">Select Country</option>
+                </select>
+                <span asp-validation-for="CountryID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-actions mt-5">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-9">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,97 @@
+@using System.Data;
+@Model DataTable;
+@{
+    ViewData["Title"] = "Country";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-white">Country</h1>
+
+
+<table class="table table-dark table-hover">
+    <thead>
+    <tr>
+        <th scope="col">
+            Country ID
+        </th>
+        <th scope="col">
+            Country Name
+        </th>
+        <th scope="col">
+            Country Code
+        </th>
+        <th scope="col">
+            Created
+        </th>
+        <th scope="col">
+            Modified
+        </th>
+        <th scope="col">
+            Action
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        if (Model.Rows.Count > 0)
+        {
+            foreach (DataRow dr in Model.Rows)
+            {
+                <tr>
+                    <td class="text-white">@dr["CountryID"]</td>
+                    <td class="text-white">@dr["CountryName"]</td>
+                    <td class="text-white">@dr["CountryCode"]</td>
+                    <td class="text-white">@Convert.ToDateTime(dr["Created"]).ToString("d")</td>
+                    <td class="text-white">@Convert.ToDateTime(dr["Modified"]).ToString("d")</td>
+                    <td class="d-inline-flex ">
+                        <span class="me-2">
+                                <div>
+                                    <!-- Button trigger modal -->
+                                    @{
+                                        string modalString = "modal";//+@dr["CountryID"];
+                                        string target = "#staticBackdrop"+ dr["CountryID"];
+                                        string targetID = "staticBackdrop"+ dr["CountryID"];
+                                    }
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="@modalString" data-bs-target="@target">Delete </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="@targetID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Alert</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="@modalString" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are You Sure U Want To Delete ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="@modalString">Close</button>
+                                                    <a  class="btn btn-outline-danger text-white" asp-controller="Country"
+                                                            asp-action="Delete" asp-route-countryId="@dr["CountryID"]">
+                                                        Yes
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </span>
+                        <span>
+
+                                <a class="btn btn-outline-info" asp-controller="Country" asp-action="Add_Edit" asp-route-countryId="@dr["CountryID"]"> Edit</a>
+                        </span>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">
+                    <p class="col-form-label">No Record Found</p>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
