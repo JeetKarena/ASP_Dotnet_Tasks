@@ -26,13 +26,13 @@ public class DbHelperStudent
         return dt;
     }
 
-    public Student GetStudentById(int? countryId)
+    public Student GetStudentById(int? StudentID)
     {
         _connection.Open();
         SqlCommand cmd = _connection.CreateCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "PR_LOC_Country_Select_By_PK";
-        cmd.Parameters.AddWithValue("CountryID", countryId);
+        cmd.CommandText = "PR_LOC_Student_SelectByPK";
+        cmd.Parameters.AddWithValue("StudentID", StudentID);
         SqlDataReader sdr = cmd.ExecuteReader();
         Student student = new Student();
         if (sdr.HasRows)
@@ -76,8 +76,6 @@ public class DbHelperStudent
         cmd.Parameters.AddWithValue("MobileNoFather", student.MobileNoFather);
         cmd.Parameters.AddWithValue("Address", student.Address);
         cmd.Parameters.AddWithValue("BirthDate", student.BirthDate);
-        cmd.Parameters.AddWithValue("Created", student.Created);
-        cmd.Parameters.AddWithValue("Modified", student.Modified);
         bool isAdded = Convert.ToBoolean(cmd.ExecuteNonQuery());
         _connection.Close();
         // check for is student added or not

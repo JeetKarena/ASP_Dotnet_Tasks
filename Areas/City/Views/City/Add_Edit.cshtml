@@ -1,6 +1,8 @@
 ﻿@{
     Layout = "_Layout";
 }
+@using Microsoft.CodeAnalysis.Scripting
+@using System.Collections.Specialized
 @model crud_demo.Areas.CIty.Models.City
 <h2 class="text-white">City Add Edit</h2>
 
@@ -23,20 +25,21 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>State Name</label>
-            <div class="col-md-9">
-                <select class="form-control" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList, "StateID", "StateName"))">
-                    <option value="">Select State</option>
-                </select>
-                <span asp-validation-for="StateID" class="text-danger"></span>
-            </div>
-        </div><div class="form-group">
             <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>Country Name</label>
             <div class="col-md-9">
-                <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList, "CountryId", "CountryName"))">
+                <select id="CountryID" onchange="fnOnCountryChange()" class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList, "CountryID", "CountryName"))">
                     <option value="">Select Country</option>
                 </select>
                 <span asp-validation-for="CountryID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label text-white"><span class="text-danger">*</span>State Name</label>
+            <div class="col-md-9">
+                <select id="StateID" class="form-control" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList, "StateID", "StateName"))">
+                    <option value="">Select State</option>
+                </select>
+                <span asp-validation-for="StateID" class="text-danger"></span>
             </div>
         </div>
         <div class="form-actions mt-5">
@@ -51,3 +54,35 @@
         </div>
     </div>
 </form>
+@section Scripts
+{
+    <script>
+    function fnOnCountryChange() {
+                var CountryID = $('#CountryID').val();
+                if (CountryID !== "") {
+                    $("#StateID").empty();
+                    $("#StateID").append($("<option></option>").val("").html("Select State"));
+    
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "@Url.Action("SelectState", "City")" + "?&CountryID=" + CountryID,
+                        data: {},
+                        dataType: "json",
+                        success: function (Result) {
+                            $.each(Result, function (key, value) {
+                                $("#StateID").append($("<option></option>").val(value.stateID).html(value.stateName));
+                            });
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            alert("Error while loading combobox.");
+                        }
+                    });
+                } else {
+                    $("#StateID").empty();
+                    $("#StateID").append($("<option></option>").val("").html("Select State"));
+                }
+            }
+    </script>
+}

@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using crud_demo.Areas.CIty.Models;
+using crud_demo.Areas.Student.Models;
 using crud_demo.Database;
 using crud_demo.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -32,22 +33,14 @@ public class CityController : Controller
     // POST: Index/Create_Edit
     public IActionResult Add_Edit(int? CityId)
     {
-        List<Country> list = new List<Country>();
-        List<State.Models.State> stateList = new List<State.Models.State>();
+        List<CountryDropdownModel> list = new List<CountryDropdownModel>();
+        List<StateDropdownModel> stateList = new List<StateDropdownModel>();
         foreach (DataRow row in _dbHelperCountry.GetAllCountry().Rows)
         {
-            Country cn = new Country();
-            cn.CountryId = Convert.ToInt32(row["CountryID"]);
+            CountryDropdownModel cn = new CountryDropdownModel();
+            cn.CountryID = Convert.ToInt32(row["CountryID"]);
             cn.CountryName = row["CountryName"].ToString();
             list.Add(cn);
-        }
-
-        foreach (DataRow row in _dbHelperState.GetAllState().Rows)
-        {
-            State.Models.State st = new State.Models.State();
-            st.StateID = Convert.ToInt32(row["StateId"]);
-            st.StateName = row["StateName"].ToString();
-            stateList.Add(st);
         }
 
         ViewBag.CountryList = list;
@@ -82,5 +75,19 @@ public class CityController : Controller
     {
         _dbHelperCity.DeleteCity(CityID);
         return RedirectToAction(nameof(Index));
+    }
+
+    public ActionResult SelectState(int CountryID)
+    {
+        List<StateDropdownModel> stateList = new List<StateDropdownModel>();
+        foreach (DataRow row in _dbHelperState.GetStateDropDown(CountryID).Rows)
+        {
+            StateDropdownModel st = new StateDropdownModel();
+            st.StateID = Convert.ToInt32(row["StateId"]);
+            st.StateName = row["StateName"].ToString();
+            stateList.Add(st);
+        }
+
+        return Json(stateList);
     }
 }

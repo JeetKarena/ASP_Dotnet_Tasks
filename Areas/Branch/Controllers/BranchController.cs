@@ -36,7 +36,7 @@ namespace crud_demo.Areas.Branch.Controllers
         [HttpPost]
         public IActionResult Save(Models.Branch branch)
         {
-            if (branch.BranchId != null)
+            if (branch.BranchId != 0)
             {
                 _dbHelperBranch.UpdateBranch(branch);
             }

@@ -15,7 +15,7 @@ public class State
     public string? StateCode { get; set; }
 
     // This attribute specifies that this property is a foreign key that references the CountryID column of the LOC_Country table
-    [Required]
+    [Required(ErrorMessage = "The Country Name field is required.")]
     public int? CountryID { get; set; }
 
     // This property represents the navigation property to the related Country entity

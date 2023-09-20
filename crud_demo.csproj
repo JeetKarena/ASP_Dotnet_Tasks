@@ -19,9 +19,7 @@
       <Folder Include="Areas\City\Data\" />
       <Folder Include="Areas\State\Controllers\" />
       <Folder Include="Areas\State\Data\" />
-      <Folder Include="Areas\Student\Controllers\" />
       <Folder Include="Areas\Student\Data\" />
-      <Folder Include="Areas\Student\Views\" />
     </ItemGroup>
 
 </Project>

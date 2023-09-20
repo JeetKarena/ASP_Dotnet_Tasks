@@ -51,6 +51,19 @@ public class DbHelperBranch
         return branch;
     }
 
+    public DataTable GetBranchDropDown()
+    {
+        _connection.Open();
+        SqlCommand cmd = _connection.CreateCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "PR_Branch_Select_DropDownList";
+        DataTable dt = new DataTable();
+        SqlDataReader sdr = cmd.ExecuteReader();
+        dt.Load(sdr);
+        _connection.Close();
+        return dt;
+    }
+
      public bool AddBranch(Branch branch)
     {
         _connection.Open();
@@ -59,9 +72,8 @@ public class DbHelperBranch
         cmd.CommandText = "PR_MST_Branch_Insert"; 
 
         // Add parameters for the stored procedure.
-        cmd.Parameters.AddWithValue("BranchName", branch.BranchName);
-        cmd.Parameters.AddWithValue("BranchCode", branch.BranchCode);
-        cmd.Parameters.AddWithValue("Created", branch.Created);
+        cmd.Parameters.AddWithValue("@BranchName", branch.BranchName);
+        cmd.Parameters.AddWithValue("@BranchCode", branch.BranchCode);
 
         bool isAdded = Convert.ToBoolean(cmd.ExecuteNonQuery());
         _connection.Close();

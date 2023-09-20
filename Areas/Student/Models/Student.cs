@@ -1,19 +1,20 @@
-﻿namespace crud_demo.Areas.Student.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace crud_demo.Areas.Student.Models;
 
 public class Student
 {
-    public int StudentID;
     public int StudentId { get; set; }
-    public int BranchId { get; set; }
-    public int CityId { get; set; }
-    public int StateId { get; set; }
-    public int CountryId { get; set; }
-    public string? StudentName { get; set; }
-    public string? MobileNoStudent { get; set; }
-    public string? Email { get; set; }
-    public string? MobileNoFather { get; set; }
-    public string? Address { get; set; }
-    public DateTime BirthDate { get; set; }
+    [Required] public int BranchId { get; set; }
+    [Required(ErrorMessage = "The City Name field is required.")] public int CityId { get; set; }
+    [Required(ErrorMessage = "The State Name field is required.")] public int StateId { get; set; }
+    [Required(ErrorMessage = "The Country Name field is required.")] public int CountryId { get; set; }
+    [Required] public string? StudentName { get; set; }
+    [Required][Phone] public string? MobileNoStudent { get; set; }
+    [Required] public string? Email { get; set; }
+    [Required][Phone] public string? MobileNoFather { get; set; }
+    [Required] public string? Address { get; set; }
+    [Required] public DateTime BirthDate { get; set; }
     public DateTime Created { get; set; }
     public DateTime Modified { get; set; }
 }

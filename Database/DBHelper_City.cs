@@ -12,7 +12,7 @@ public class DbHelperCity
     {
         _connection = new SqlConnection(connString);
     }
-    
+
     public DataTable GetAllCity()
     {
         _connection.Open();
@@ -25,7 +25,7 @@ public class DbHelperCity
         _connection.Close();
         return dt;
     }
-    
+
     public City GetCityByID(int? CityID)
     {
         _connection.Open();
@@ -53,7 +53,21 @@ public class DbHelperCity
 
         return ct;
     }
-    
+
+    public DataTable GetCityDropDown(int StateID)
+    {
+        _connection.Open();
+        SqlCommand cmd = _connection.CreateCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "PR_City_Select_DropDownList";
+        cmd.Parameters.AddWithValue("@StateID", StateID);
+        DataTable dt = new DataTable();
+        SqlDataReader sdr = cmd.ExecuteReader();
+        dt.Load(sdr);
+        _connection.Close();
+        return dt;
+    }
+
     public bool AddCity(City ct)
     {
         _connection.Open();
@@ -75,7 +89,7 @@ public class DbHelperCity
             return false;
         }
     }
-    
+
     public bool UpdateCity(City ct)
     {
         _connection.Open();
@@ -99,7 +113,7 @@ public class DbHelperCity
             return false;
         }
     }
-    
+
     public bool DeleteCity(int CityID)
     {
         _connection.Open();
