@@ -1,0 +1,166 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EnterpriseLibrary.Data.NetCore" Version="6.3.2" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <None Include="Bootstrap\.idea\config\applicationhost.config" />
+      <None Include="Bootstrap\Properties\launchSettings.json" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Country\Add_Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Country\Country.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Country\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Wildcard\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="Areas\Branch\Views\Branch\Add_Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Branch\Views\Branch\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Branch\Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\City\Views\City\Add_Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\City\Views\City\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\City\Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\State\Views\State\Add_Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\State\Views\State\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\State\Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Student\Views\Student\Add_Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Student\Views\Student\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Student\Views\_ViewImports.cshtml" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <AdditionalFiles Include="Bootstrap\Areas\Branch\Views\Branch\Add_Edit.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\Branch\Views\Branch\Index.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\Branch\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\City\Views\City\Add_Edit.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\City\Views\City\Index.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\City\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\State\Views\State\Add_Edit.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\State\Views\State\Index.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\State\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\Student\Views\Student\Add_Edit.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\Student\Views\Student\Index.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Areas\Student\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Country\Add_Edit.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Country\Country.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Country\Index.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Shared\Error.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Shared\_Layout.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\Wildcard\Index.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\_ViewImports.cshtml" />
+      <AdditionalFiles Include="Bootstrap\Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <EditorConfigFiles Include="Bootstrap\Controllers\obj\Debug\net6.0\crud_demo.GeneratedMSBuildEditorConfig.editorconfig" />
+      <EditorConfigFiles Include="Bootstrap\obj\Debug\net6.0\crud_demo.GeneratedMSBuildEditorConfig.editorconfig" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Content Include="Bootstrap\.idea\.idea.ASP_DotNet_CORE_MVC_PROJECT.dir\.idea\.gitignore" />
+      <Content Include="Bootstrap\.idea\.idea.ASP_DotNet_CORE_MVC_PROJECT.dir\.idea\encodings.xml" />
+      <Content Include="Bootstrap\.idea\.idea.ASP_DotNet_CORE_MVC_PROJECT.dir\.idea\indexLayout.xml" />
+      <Content Include="Bootstrap\.idea\.idea.ASP_DotNet_CORE_MVC_PROJECT.dir\.idea\projectSettingsUpdater.xml" />
+      <Content Include="Bootstrap\.idea\.idea.ASP_DotNet_CORE_MVC_PROJECT.dir\.idea\vcs.xml" />
+      <Content Include="Bootstrap\.idea\.idea.ASP_DotNet_CORE_MVC_PROJECT.dir\.idea\workspace.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\.gitignore" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\.name" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources.local.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources\3d43f731-ef9a-4e24-ad13-ca87a07decfd.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources\3d43f731-ef9a-4e24-ad13-ca87a07decfd\storage_v2\_src_\database\Student_Registration.fRD20g.meta" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources\3d43f731-ef9a-4e24-ad13-ca87a07decfd\storage_v2\_src_\database\Student_Registration.fRD20g\schema\dbo.sYMBAA.meta" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources\3d43f731-ef9a-4e24-ad13-ca87a07decfd\storage_v2\_src_\database\Student_Registration.fRD20g\schema\dbo.sYMBAA.zip" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources\3d43f731-ef9a-4e24-ad13-ca87a07decfd\storage_v2\_src_\database\Student_Registration.fRD20g\schema\INFORMATION_SCHEMA.NBgcMw.meta" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\dataSources\3d43f731-ef9a-4e24-ad13-ca87a07decfd\storage_v2\_src_\database\Student_Registration.fRD20g\schema\sys.zb4BAA.meta" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\encodings.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\indexLayout.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\projectSettingsUpdater.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\vcs.xml" />
+      <Content Include="Bootstrap\.idea\.idea.crud_demo\.idea\workspace.xml" />
+    </ItemGroup>
+
+</Project>
