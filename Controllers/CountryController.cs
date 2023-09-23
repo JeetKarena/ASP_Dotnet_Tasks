@@ -52,4 +52,9 @@ public class CountryController : Controller
         _db.DeleteCountry(countryId);
         return RedirectToAction("Index");
     }
+
+    public IActionResult WildcardRoute(string? url)
+    {
+        return View();
+    }
 }

@@ -57,4 +57,14 @@ app.UseEndpoints(endpoints =>
         pattern: "{area:exists}/{controller=Student}/{action=Index}/{id?}"
     );
 });
+
+/* Wildcard Route */
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "wildcard",
+        pattern: "{*url}",
+        defaults: new { controller = "Country", action = "WildcardRoute" }
+    );
+});
 app.Run();
