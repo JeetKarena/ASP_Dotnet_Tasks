@@ -53,8 +53,4 @@ public class CountryController : Controller
         return RedirectToAction("Index");
     }
 
-    public IActionResult WildcardRoute(string? url)
-    {
-        return View();
-    }
 }

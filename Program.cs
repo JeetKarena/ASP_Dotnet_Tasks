@@ -64,7 +64,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "wildcard",
         pattern: "{*url}",
-        defaults: new { controller = "Country", action = "WildcardRoute" }
+        defaults: new { controller = "Wildcard", action = "Index" }
     );
 });
 app.Run();
